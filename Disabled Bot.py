@@ -20,7 +20,7 @@ def spastify(string):
     return (spastified)
 
 
-TOKEN = 'NDY0MDc0MjQ2MjQzNjE0NzI1.Dh5rLA.-_8CZgl3MMLhRyN0WOpW9gCfxgM'
+TOKEN = 'XXXXXXXXXXXXXXXXXXXXXXXXXX'
 
 client = discord.Client()
 
@@ -30,8 +30,10 @@ async def on_message(message):
     # we do not want the bot to reply to itself
     if message.author == client.user:
         return
-
-    if message.content.startswith('!disableEnable'):
+    if message.content.startswith('!disableHelp'):
+        msg = 'Use the command !disableDisable to disable the bot and use !disableEnable to enable it.'.format(message)
+        await client.send_message(message.channel, msg)
+    elif message.content.startswith('!disableEnable'):
         disableEnable = True
     elif message.content.startswith('!disableDisable'):
         disableEnable = False
